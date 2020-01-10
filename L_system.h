@@ -129,7 +129,7 @@ static const std::map<char, std::function<void(Turtle &)>> alphabetTranscriptTur
 };
 
 static const std::map<char, std::string> alphabetRules{
-        {'F',"[DDD+F-F-ff-F-F-ff+F-F-FF-F-F-ff+F-F-ff-F-F-ff-f|FF|\\TFt/+FF|f+f]f"}
+        {'F', "[DDD+F-F-ff-F-F-ff+F-F-FF-F-F-ff+F-F-ff-F-F-ff-f|FF|\\TFt/+FF|f+f]f"}
         /*{'X',"/X"},
         {'F',"B!XXD[B-F][+B-F][|B-F][-B-F]"},
         {'f',"DDifII"}*/
@@ -140,8 +140,8 @@ static const std::map<char, std::function<void(L_system &)>> alphabetTranscript{
             if (uid(gen) % 1000 > 100)
                 l_system.moveIterator(1);
         }},
-        {'!', [](L_system &l_system){
-            if (l_system.getNesting()>=3)
+        {'!', [](L_system &l_system) {
+            if (l_system.getNesting() >= 3)
                 l_system.moveIterator(std::string("XXD[B-F][+B-F][|B-F][-B-F]").length());
         }}
 };

@@ -15,14 +15,14 @@
 
 class Turtle {
 private:
-    std::vector<sf::Vertex> vertexVector=std::vector<sf::Vertex>();
+    std::vector <sf::Vertex> vertexVector = std::vector<sf::Vertex>();
     sf::VertexArray vertexArray = sf::VertexArray(sf::Lines);
     sf::Vector2f pos = sf::Vector2f(0.f, 0.f);
     sf::Vector2f direction = sf::Vector2f(1.f, 0.f);
 
     float size = 100.f;
-    std::stack<std::unique_ptr<Turtle>> states;
-    sf::Color fillcolor=DEFAULT_LINE_COLOR;
+    std::stack <std::unique_ptr<Turtle>> states;
+    sf::Color fillcolor = DEFAULT_LINE_COLOR;
 
 public:
     Turtle() = default;
@@ -31,7 +31,7 @@ public:
 
     Turtle(const sf::VertexArray &vertexArray, const sf::Vector2f &pos, const sf::Vector2f &direction);
 
-    Turtle(const Turtle&);
+    Turtle(const Turtle &);
 
     Turtle(const sf::Vector2f &pos, const sf::Vector2f &direction);
 
@@ -67,7 +67,7 @@ public:
 
     const sf::VertexArray &getVertexArray() const;
 
-    const std::vector<sf::Vertex> &getVertexVector() const;
+    const std::vector <sf::Vertex> &getVertexVector() const;
 
     void removeLast();
 };

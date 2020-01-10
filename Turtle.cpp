@@ -102,12 +102,12 @@ const sf::Color &Turtle::getFillcolor() const {
 }
 
 void Turtle::removeLast() {
-    if(!vertexVector.empty()){
+    if (!vertexVector.empty()) {
         vertexVector.pop_back();
         vertexVector.pop_back();
     }
 }
 
-const std::vector<sf::Vertex> &Turtle::getVertexVector() const {
+const std::vector <sf::Vertex> &Turtle::getVertexVector() const {
     return vertexVector;
 }

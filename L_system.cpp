@@ -7,23 +7,23 @@
 L_system::L_system(const std::string &string) : _string(string) {}
 
 void L_system::update() {
-    std::string res="";
-    for(;iterator<_string.length();++iterator){
-        if(alphabetTranscript.find(_string[iterator])!=alphabetTranscript.end())
+    std::string res = "";
+    for (; iterator < _string.length(); ++iterator) {
+        if (alphabetTranscript.find(_string[iterator]) != alphabetTranscript.end())
             alphabetTranscript.at(_string[iterator])(*this);
-        else if(alphabetRules.find(_string[iterator])!=alphabetRules.end()){
-            res+=alphabetRules.at(_string[iterator]);
-        }else{
-            res+=_string[iterator];
+        else if (alphabetRules.find(_string[iterator]) != alphabetRules.end()) {
+            res += alphabetRules.at(_string[iterator]);
+        } else {
+            res += _string[iterator];
         }
     }
-    _string=res;
-    iterator=0;
+    _string = res;
+    iterator = 0;
 }
 
 void L_system::draw() {
-    for(char ch:_string){
-        if(alphabetTranscriptTurtle.find(ch)!=alphabetTranscriptTurtle.end())
+    for (char ch:_string) {
+        if (alphabetTranscriptTurtle.find(ch) != alphabetTranscriptTurtle.end())
             alphabetTranscriptTurtle.at(ch)(turtle);
     }
 }
@@ -43,7 +43,7 @@ void L_system::setSizeTurtle(float f) {
 }
 
 void L_system::moveIterator(unsigned long i) {
-    iterator+=i;
+    iterator += i;
 }
 
 void L_system::clearTurtle() {
@@ -51,11 +51,11 @@ void L_system::clearTurtle() {
 }
 
 int L_system::getNesting() {
-    int res=0;
+    int res = 0;
     for (int i = 0; i < iterator; ++i) {
-        if(_string[i]=='[')
+        if (_string[i] == '[')
             ++res;
-        else if(_string[i]==']')
+        else if (_string[i] == ']')
             --res;
     }
 

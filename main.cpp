@@ -12,7 +12,7 @@ int main() {
 
     Turtle turtle = Turtle(sf::Vector2f(50, 400));
 
-    L_system l_system = {turtle,"IIIF"};//"^X[B-F][+B-F][|B-F][-B-F]"};
+    L_system l_system = {turtle, "IIIF"};//"^X[B-F][+B-F][|B-F][-B-F]"};
     l_system.update();
     l_system.update();
     l_system.update();
@@ -46,7 +46,7 @@ int main() {
         sf::Time time = begintime;
 
         while (time.asMilliseconds() - begintime.asMilliseconds() < 50) {
-            time=clock.getElapsedTime();
+            time = clock.getElapsedTime();
         }
     }
 

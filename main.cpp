@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Turtle.h"
+#include "Mode.h"
 #include "L_system.h"
 
 int main() {
@@ -10,9 +11,25 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(1800, 1800), "SFML shapes", sf::Style::Default, settings);
     sf::Clock clock;
 
-    Turtle turtle = Turtle(sf::Vector2f(50, 400));
+    Turtle turtle = Turtle(
+#ifdef SIERPINSKI_TRIANGLE
+            sf::Vector2f(window.getSize().x / 2 + 600, window.getSize().y - 100), 15.f
+#elif defined(TREE_1)
+            sf::Vector2f(window.getSize().x / 2, window.getSize().y - 100), 5.f
+#elif defined(TREE_2)
+            sf::Vector2f(window.getSize().x / 2, window.getSize().y - 100), 10.f
+#endif
+);
 
-    L_system l_system = {turtle, "IIIF"};//"^X[B-F][+B-F][|B-F][-B-F]"};
+    L_system l_system = {turtle,
+#ifdef SIERPINSKI_TRIANGLE
+                         "++F" //sierpinski triangle setup
+#elif defined(TREE_1)
+                         "-F" // tree 1 setup
+#elif defined(TREE_2)
+                         "-F"
+#endif
+    };
     l_system.update();
     l_system.update();
     l_system.update();

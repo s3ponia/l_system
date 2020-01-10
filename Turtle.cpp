@@ -13,6 +13,8 @@ Turtle::Turtle(const sf::Vector2f &pos, const sf::Vector2f &direction) : pos(pos
 
 Turtle::Turtle(const sf::Vector2f &pos) : pos(pos) {}
 
+Turtle::Turtle(const sf::Vector2f &pos, float size_) : pos(pos), size(size_) {}
+
 void Turtle::goWithoutDrawing() {
     pos += direction * size;
 }
